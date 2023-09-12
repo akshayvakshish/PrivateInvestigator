@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class NotesService {
     /**
-     * This is the main algorithm ->> We assume each word to be a repeating word and mask it with '?'
+     * This is the main algorithm ->> We assume each word in a sentence to be a repeating word and mask it with '?'
      * This new sentence is cloned and used as a key, so next time same key is formed we add those notes to the corresponding set
      * We also know which word is being masked so we store it in a cloned Entry object, as this object can be saved in multiple groups
      *
