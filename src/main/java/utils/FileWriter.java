@@ -13,9 +13,7 @@ public class FileWriter {
     }
 
 
-
-    public  void writeDataLineByLine(String filePath)
-    {
+    public void writeDataLineByLine(String filePath) {
         // first create file object for file placed at location
         // specified by filepath
         File file = new File(filePath);
@@ -27,25 +25,24 @@ public class FileWriter {
             writer = new CSVWriter(outputfile);
 
 
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
     public void writeSingleLine(String[] line) throws IOException {
-        if(this.writer!=null){
+        if (this.writer != null) {
             // add data to csv
-            for(String sentence:line) {
-                writer.writeNext(new String[]{sentence},false);
+            for (String sentence : line) {
+                writer.writeNext(new String[]{sentence}, false);
             }
 
         }
     }
 
     public void closeWriter() throws IOException {
-        if(this.writer!=null){
+        if (this.writer != null) {
             // closing writer connection
             writer.close();
         }

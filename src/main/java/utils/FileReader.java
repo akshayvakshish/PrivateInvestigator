@@ -25,11 +25,11 @@ public class FileReader {
             CSVReader csvReader = new CSVReaderBuilder(filereader)
                     .withCSVParser(parser)
                     .build();
-            List<Entry> entries=new ArrayList<>();
+            List<Entry> entries = new ArrayList<>();
             // Read all data at once
             String[] current;
-            while((current=csvReader.readNext())!=null){
-                entries.add(new Entry(current[0],current[1],current[2]));
+            while ((current = csvReader.readNext()) != null) {
+                entries.add(new Entry(current[0], current[1], current[2]));
             }
             return entries;
 
