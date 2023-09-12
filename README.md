@@ -7,9 +7,13 @@ run java/Application.java file's main method. It computes the following-
 4. Then it writes the output into output.csv file in the required format.
 
 Algorithm ->> 
+     
      * We assume each word in a sentence to be a repeating word and mask it with '?'. This will generate all possible combinations of keys/groups.
+     
      * This new sentence is cloned and used as a key, so next time same key is formed we add those notes to the corresponding key(masked)
+     
      * We also know which word is being masked so we store it in a cloned Entry object, as this object can be saved in multiple groups
+
 
 Code complexity->
 *The time complexity is O(n^2)+O(n^2). First to group all the sentences and second is to generate output format.
