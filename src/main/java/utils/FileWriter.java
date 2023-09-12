@@ -8,11 +8,18 @@ import java.io.IOException;
 public class FileWriter {
     CSVWriter writer;
 
+    /**
+     *
+     * @param file
+     */
     public FileWriter(String file) {
         this.writeDataLineByLine(file);
     }
 
-
+    /**
+     *
+     * @param filePath
+     */
     public void writeDataLineByLine(String filePath) {
         // first create file object for file placed at location
         // specified by filepath
@@ -31,6 +38,11 @@ public class FileWriter {
         }
     }
 
+    /**
+     *
+     * @param line
+     * @throws IOException
+     */
     public void writeSingleLine(String[] line) throws IOException {
         if (this.writer != null) {
             // add data to csv

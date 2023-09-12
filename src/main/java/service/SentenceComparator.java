@@ -5,7 +5,12 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SentenceComparator implements Comparator<String> {
-
+    /**
+     *
+     * @param sentence1
+     * @param sentence2
+     * @return
+     */
     @Override
     public int compare(String sentence1, String sentence2) {
         List<String> wordList1 = Arrays.asList(sentence1.split("\\s+"));

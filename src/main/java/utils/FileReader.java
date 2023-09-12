@@ -11,6 +11,11 @@ import java.util.List;
 
 public class FileReader {
 
+    /**
+     *
+     * @param file
+     * @return
+     */
     public static List<Entry> readCSV(String file) {
         try {
             // Create an object of file reader class with CSV file as a parameter.

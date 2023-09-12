@@ -6,11 +6,17 @@ import utils.FileWriter;
 import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.stream.Collectors;
 
 public class NotesService {
-
+    /**
+     * This is the main algorithm ->> We assume each word to be a repeating word and mask it with '?'
+     * This new sentence is cloned and used as a key, so next time same key is formed we add those notes to the corresponding set
+     * We also know which word is being masked so we store it in a cloned Entry object, as this object can be saved in multiple groups
+     *
+     * @param notes
+     * @return Set<Set<Entry>>
+     * @throws CloneNotSupportedException
+     */
     public Set<Set<Entry>> groupNotes(List<Entry> notes) throws CloneNotSupportedException {
         Map<String, Set<Entry>> groups = new ConcurrentHashMap<>();
         for (Entry note : notes) {
@@ -36,6 +42,11 @@ public class NotesService {
         return new HashSet<>(groups.values());
     }
 
+    /**
+     * This is a service method which writes to the file after extracting data in required format
+     * @param entrySet
+     * @throws IOException
+     */
     public void writeToFile(Set<Set<Entry>> entrySet) throws IOException {
 
         FileWriter fileWriter = new FileWriter("src/main/resources/output.csv");
@@ -58,19 +69,17 @@ public class NotesService {
 
     }
 
+    /**
+     * The file remains open and its written to on need basis, it will be closed once the operation completes
+     * @param fileWriter
+     * @param stringArray
+     */
     public void writeToFile(FileWriter fileWriter, String[] stringArray) {
         try {
-//                String[] stringArray=new String[]{};
-//                stringArray=strings.toArray(stringArray);
-//                stringArray[strings.size()]= "The changing word was: "+uncommonSet.toString().replace("[","").replace("]","");
             fileWriter.writeSingleLine(stringArray);
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 
 }
