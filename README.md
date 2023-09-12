@@ -5,6 +5,7 @@ run java/Application.java file's main method. It computes the following-
 1. It reads an input csv file from resources.
 2. Then groups all the sentences using the algorithm which generates generic keys.
 4. Then it writes the output into output.csv file in the required format.
+
 Algorithm ->> 
      * We assume each word in a sentence to be a repeating word and mask it with '?'. This will generate all possible combinations of keys/groups.
      * This new sentence is cloned and used as a key, so next time same key is formed we add those notes to the corresponding key(masked)
